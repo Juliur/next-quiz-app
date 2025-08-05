@@ -17,7 +17,6 @@ export default function QuizQuestionPage({
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
 
   const currentQuestion = questions[questionIndex];
-  if (!currentQuestion) return null;
 
   useEffect(() => {
     if (!currentQuestion) return;
@@ -52,6 +51,8 @@ export default function QuizQuestionPage({
     answerCurrentQuestion(answer);
     handleNext();
   };
+
+  if (!currentQuestion) return null;
 
   return (
     <div className="w-xl mx-auto shadow-md bg-eggplant rounded-sm p-8">

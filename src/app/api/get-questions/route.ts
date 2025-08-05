@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
+import { decode } from "html-entities";
 
-function decodeHtmlEntities(str: String) {
-  const { decode } = require("html-entities");
+function decodeHtmlEntities(str: string) {
   return decode(str);
 }
 
@@ -20,7 +20,7 @@ export async function GET(request: Request) {
   const amount = searchParams.get("amount") || 10;
   const category = searchParams.get("category");
 
-  let triviaApiUrl = `${API_BASE_URL}/api.php?amount=${amount}&category=${category}`;
+  const triviaApiUrl = `${API_BASE_URL}/api.php?amount=${amount}&category=${category}`;
 
   try {
     const response = await fetch(triviaApiUrl);
